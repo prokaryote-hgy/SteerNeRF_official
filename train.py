@@ -181,6 +181,7 @@ class NeRFSystem(LightningModule):
             else:
                 directions = self.directions
 
+        # 未使用
         if self.hparams.optimize_ext:
             dR = axisangle_to_R(self.dR[batch['img_idxs']])
             poses[..., :3] = dR @ poses[..., :3]
@@ -219,6 +220,7 @@ class NeRFSystem(LightningModule):
             if split=='test':
                 start = timer()
                 # if i>0:
+                # 测试project的时间
                 if False:
                     depth_prev = outs[-1]['depth'].reshape(1,1,self.train_dataset.low_res_h, self.train_dataset.low_res_w)
                     if False:
